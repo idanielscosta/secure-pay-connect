@@ -103,7 +103,7 @@ const Index = () => {
 
         <div className="grid lg:grid-cols-[1fr_380px] gap-6 lg:gap-8">
           {/* LEFT — Payment */}
-          <section className="bg-card rounded-2xl md:rounded-3xl shadow-card p-4 sm:p-6 md:p-8 border border-border">
+          <section className="min-w-0 bg-card rounded-2xl md:rounded-3xl shadow-card p-4 sm:p-6 md:p-8 border border-border">
             <div className="mb-5 md:mb-6">
               <h2
                 className="text-xl md:text-2xl font-bold text-foreground mb-1"
