@@ -36,8 +36,8 @@ export const PixPayment = ({ amount }: { amount: number }) => {
 
       <div className="relative mx-auto w-fit">
         <div className="absolute inset-0 gradient-pix rounded-3xl blur-2xl opacity-30" />
-        <div className="relative bg-white p-5 rounded-3xl shadow-card border-2 border-primary/10">
-          <div className="relative w-56 h-56 grid grid-cols-[repeat(25,1fr)] grid-rows-[repeat(25,1fr)] gap-0">
+        <div className="relative bg-white p-3 sm:p-5 rounded-3xl shadow-card border-2 border-primary/10">
+          <div className="relative w-44 h-44 sm:w-56 sm:h-56 grid grid-cols-[repeat(25,1fr)] grid-rows-[repeat(25,1fr)] gap-0">
             {Array.from({ length: 625 }).map((_, i) => {
               const row = Math.floor(i / 25);
               const col = i % 25;
@@ -89,13 +89,13 @@ export const PixPayment = ({ amount }: { amount: number }) => {
           Pix Copia e Cola
         </label>
         <div className="flex gap-2">
-          <div className="flex-1 bg-muted rounded-xl px-4 py-3 font-mono text-xs text-muted-foreground truncate border border-border">
+          <div className="flex-1 min-w-0 bg-muted rounded-xl px-3 sm:px-4 py-3 font-mono text-[11px] sm:text-xs text-muted-foreground truncate border border-border">
             {PIX_CODE}
           </div>
           <Button
             onClick={copy}
             variant={copied ? "default" : "secondary"}
-            className="shrink-0 transition-smooth"
+            className="shrink-0 h-auto transition-smooth"
           >
             {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
           </Button>
