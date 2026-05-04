@@ -26,7 +26,7 @@ export const PixPayment = ({ amount }: { amount: number }) => {
   };
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-500">
+    <div className="space-y-6 animate-in fade-in duration-500 w-full min-w-0">
       <div className="text-center space-y-1">
         <h3 className="text-lg font-bold text-foreground">Pague com Pix</h3>
         <p className="text-sm text-muted-foreground">
@@ -84,11 +84,11 @@ export const PixPayment = ({ amount }: { amount: number }) => {
         </span>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-2 w-full min-w-0">
         <label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
           Pix Copia e Cola
         </label>
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-full min-w-0">
           <div className="flex-1 min-w-0 bg-muted rounded-xl px-3 sm:px-4 py-3 font-mono text-[11px] sm:text-xs text-muted-foreground truncate border border-border">
             {PIX_CODE}
           </div>
