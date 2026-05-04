@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Copy, Check, QrCode, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -10,10 +10,10 @@ export const PixPayment = ({ amount }: { amount: number }) => {
   const [copied, setCopied] = useState(false);
   const [seconds, setSeconds] = useState(15 * 60);
 
-  useState(() => {
+  useEffect(() => {
     const id = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
     return () => clearInterval(id);
-  });
+  }, []);
 
   const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
   const ss = String(seconds % 60).padStart(2, "0");
