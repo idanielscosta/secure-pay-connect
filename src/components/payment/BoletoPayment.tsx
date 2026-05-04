@@ -28,7 +28,7 @@ export const BoletoPayment = ({ amount }: { amount: number }) => {
       </div>
 
       {/* Boleto preview */}
-      <div className="bg-white border-2 border-dashed border-border rounded-2xl p-5 space-y-4 shadow-card">
+      <div className="bg-card border-2 border-dashed border-border rounded-2xl p-4 sm:p-5 space-y-4 shadow-card">
         <div className="flex items-center justify-between border-b border-border pb-3">
           <div className="flex items-center gap-2">
             <div className="h-9 w-9 rounded-lg gradient-hero flex items-center justify-center">
@@ -94,7 +94,7 @@ export const BoletoPayment = ({ amount }: { amount: number }) => {
         </Button>
       </div>
 
-      <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-800 dark:bg-amber-950/30 dark:border-amber-900/40 dark:text-amber-200">
+      <div className="bg-primary/10 border border-primary/30 rounded-xl p-3 text-xs text-primary">
         ⚠️ A compensação do boleto leva até 3 dias úteis após o pagamento.
       </div>
     </div>

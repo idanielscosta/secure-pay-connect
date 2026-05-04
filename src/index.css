@@ -4,70 +4,53 @@
 
 @layer base {
   :root {
-    --background: 220 30% 97%;
-    --foreground: 224 30% 12%;
+    /* Dark, robust, premium palette: slate/charcoal + gold accents */
+    --background: 222 25% 9%;
+    --foreground: 210 25% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 224 30% 12%;
+    --card: 222 22% 13%;
+    --card-foreground: 210 25% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 30% 12%;
+    --popover: 222 22% 13%;
+    --popover-foreground: 210 25% 96%;
 
-    --primary: 158 75% 38%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 158 80% 55%;
+    /* Primary: refined gold/amber */
+    --primary: 41 88% 55%;
+    --primary-foreground: 222 30% 10%;
+    --primary-glow: 41 90% 65%;
 
-    --secondary: 220 20% 94%;
-    --secondary-foreground: 224 30% 18%;
+    --secondary: 222 18% 18%;
+    --secondary-foreground: 210 25% 96%;
 
-    --muted: 220 18% 94%;
-    --muted-foreground: 224 12% 45%;
+    --muted: 222 18% 17%;
+    --muted-foreground: 215 14% 65%;
 
-    --accent: 250 85% 62%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent: steel blue */
+    --accent: 210 60% 48%;
+    --accent-foreground: 210 25% 98%;
 
-    --destructive: 0 84% 58%;
+    --destructive: 0 72% 52%;
     --destructive-foreground: 0 0% 100%;
 
-    --success: 142 70% 42%;
+    --success: 142 55% 45%;
     --success-foreground: 0 0% 100%;
 
-    --border: 220 18% 88%;
-    --input: 220 18% 90%;
-    --ring: 158 75% 38%;
+    --border: 222 18% 20%;
+    --input: 222 18% 20%;
+    --ring: 41 88% 55%;
 
     --radius: 1rem;
 
-    --gradient-hero: linear-gradient(135deg, hsl(158 75% 38%) 0%, hsl(180 70% 45%) 50%, hsl(200 75% 50%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 30% 98%) 100%);
-    --gradient-pix: linear-gradient(135deg, hsl(174 75% 40%) 0%, hsl(158 75% 40%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(250 85% 62%) 0%, hsl(280 80% 60%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(41 88% 55%) 0%, hsl(36 85% 48%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(222 22% 13%) 0%, hsl(222 25% 11%) 100%);
+    --gradient-pix: linear-gradient(135deg, hsl(41 88% 55%) 0%, hsl(36 80% 48%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(215 35% 28%) 0%, hsl(222 30% 18%) 100%);
 
-    --shadow-card: 0 20px 60px -20px hsl(224 50% 20% / 0.15);
-    --shadow-glow: 0 0 40px hsl(158 80% 55% / 0.4);
-    --shadow-elevated: 0 30px 80px -30px hsl(224 50% 20% / 0.25);
+    --shadow-card: 0 20px 50px -20px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 30px hsl(41 88% 55% / 0.25);
+    --shadow-elevated: 0 30px 70px -25px hsl(0 0% 0% / 0.6);
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .dark {
-    --background: 224 40% 7%;
-    --foreground: 210 40% 98%;
-    --card: 224 35% 10%;
-    --card-foreground: 210 40% 98%;
-    --popover: 224 35% 10%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 158 75% 48%;
-    --primary-foreground: 224 40% 7%;
-    --secondary: 224 25% 16%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 224 25% 16%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 250 85% 65%;
-    --accent-foreground: 0 0% 100%;
-    --border: 224 25% 18%;
-    --input: 224 25% 18%;
-    --ring: 158 75% 48%;
   }
 }
 
@@ -75,8 +58,12 @@
   * {
     @apply border-border;
   }
-  body {
+  html, body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  body {
     font-family: 'Inter', system-ui, sans-serif;
   }
 }
@@ -92,15 +79,25 @@
   .transition-smooth { transition: var(--transition-smooth); }
 
   .card-3d {
-    background: linear-gradient(135deg, hsl(224 60% 18%) 0%, hsl(250 60% 25%) 50%, hsl(280 60% 22%) 100%);
+    background:
+      radial-gradient(circle at 15% 15%, hsl(220 20% 28% / 0.9), transparent 55%),
+      linear-gradient(135deg, hsl(220 25% 14%) 0%, hsl(220 28% 10%) 50%, hsl(220 30% 8%) 100%);
     position: relative;
     overflow: hidden;
+    border: 1px solid hsl(41 50% 40% / 0.25);
   }
   .card-3d::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 20% 20%, hsl(0 0% 100% / 0.15), transparent 50%);
+    background: radial-gradient(circle at 80% 90%, hsl(41 80% 55% / 0.12), transparent 55%);
+    pointer-events: none;
+  }
+  .card-3d::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 40%, hsl(41 90% 70% / 0.08) 50%, transparent 60%);
     pointer-events: none;
   }
 
@@ -109,7 +106,7 @@
     100% { background-position: 200% 0; }
   }
   .shimmer {
-    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.2), transparent);
+    background: linear-gradient(90deg, transparent, hsl(0 0% 100% / 0.15), transparent);
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
   }
