@@ -2,15 +2,15 @@ import { useState } from "react";
 import { PixPayment } from "@/components/payment/PixPayment";
 import { CardPayment } from "@/components/payment/CardPayment";
 import { BoletoPayment } from "@/components/payment/BoletoPayment";
+import { Navbar } from "@/components/Navbar";
 import { Shield, Lock, ShoppingBag, Zap, CreditCard, FileText, ChevronDown } from "lucide-react";
 
 type Method = "pix" | "card" | "boleto";
 
-const PRODUCT = {
+const DEFAULT_PRODUCT = {
   name: "Plano Pro Anual",
   description: "Acesso completo por 12 meses",
   amount: 199.9,
-  installments: "ou 12x de R$ 16,66 sem juros",
 };
 
 const methods: { id: Method; label: string; sub: string; icon: React.ReactNode; badge?: string }[] = [
@@ -22,6 +22,11 @@ const methods: { id: Method; label: string; sub: string; icon: React.ReactNode; 
 const Index = () => {
   const [method, setMethod] = useState<Method>("pix");
   const [summaryOpen, setSummaryOpen] = useState(false);
+  const [product, setProduct] = useState(DEFAULT_PRODUCT);
+  const PRODUCT = {
+    ...product,
+    installments: `ou 12x de R$ ${(product.amount / 12).toFixed(2).replace(".", ",")} sem juros`,
+  };
   const amount = method === "pix" ? PRODUCT.amount * 0.95 : PRODUCT.amount;
 
   return (
@@ -36,27 +41,12 @@ const Index = () => {
         }}
       />
 
-      {/* Header */}
-      <header className="sticky top-0 z-30 backdrop-blur-xl bg-background/70 border-b border-border/60">
-        <div className="container max-w-5xl px-4 py-3 md:py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-xl gradient-hero flex items-center justify-center font-bold text-white shadow-glow">
-              P
-            </div>
-            <span
-              className="font-bold text-base md:text-lg text-foreground"
-              style={{ fontFamily: "Space Grotesk, sans-serif" }}
-            >
-              PagueAqui
-            </span>
-          </div>
-          <div className="flex items-center gap-1.5 text-muted-foreground text-[11px] md:text-sm bg-muted/60 px-2.5 py-1.5 rounded-full">
-            <Lock className="h-3 w-3 md:h-3.5 md:w-3.5" />
-            <span className="hidden xs:inline">Pagamento seguro</span>
-            <span className="xs:hidden">Seguro</span>
-          </div>
-        </div>
-      </header>
+      <Navbar
+        amount={product.amount}
+        productName={product.name}
+        productDescription={product.description}
+        onUpdate={setProduct}
+      />
 
       <div className="container max-w-5xl px-3 md:px-6 py-4 md:py-10">
         <h1 className="sr-only">Finalize seu pagamento</h1>
