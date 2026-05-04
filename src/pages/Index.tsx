@@ -2,15 +2,15 @@ import { useState } from "react";
 import { PixPayment } from "@/components/payment/PixPayment";
 import { CardPayment } from "@/components/payment/CardPayment";
 import { BoletoPayment } from "@/components/payment/BoletoPayment";
+import { Navbar } from "@/components/Navbar";
 import { Shield, Lock, ShoppingBag, Zap, CreditCard, FileText, ChevronDown } from "lucide-react";
 
 type Method = "pix" | "card" | "boleto";
 
-const PRODUCT = {
+const DEFAULT_PRODUCT = {
   name: "Plano Pro Anual",
   description: "Acesso completo por 12 meses",
   amount: 199.9,
-  installments: "ou 12x de R$ 16,66 sem juros",
 };
 
 const methods: { id: Method; label: string; sub: string; icon: React.ReactNode; badge?: string }[] = [
