@@ -36,8 +36,8 @@ export const PixPayment = ({ amount }: { amount: number }) => {
 
       <div className="relative mx-auto w-fit">
         <div className="absolute inset-0 gradient-pix rounded-3xl blur-2xl opacity-30" />
-        <div className="relative bg-white p-3 sm:p-5 rounded-3xl shadow-card border-2 border-primary/10">
-          <div className="relative w-44 h-44 sm:w-56 sm:h-56 grid grid-cols-[repeat(25,1fr)] grid-rows-[repeat(25,1fr)] gap-0">
+        <div className="relative bg-white p-3 sm:p-5 rounded-3xl shadow-card border-2 border-primary/30">
+          <div className="relative w-40 h-40 sm:w-56 sm:h-56 grid grid-cols-[repeat(25,1fr)] grid-rows-[repeat(25,1fr)] gap-0">
             {Array.from({ length: 625 }).map((_, i) => {
               const row = Math.floor(i / 25);
               const col = i % 25;

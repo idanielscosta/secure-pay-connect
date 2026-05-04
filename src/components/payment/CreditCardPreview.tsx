@@ -39,7 +39,7 @@ export const CreditCardPreview = ({ number, name, expiry, cvv, flipped }: Props)
           </div>
 
           <div className="relative z-10">
-            <div className="font-mono text-base sm:text-xl md:text-2xl text-white tracking-[0.15em] sm:tracking-[0.2em] font-medium drop-shadow-md whitespace-nowrap">
+            <div className="font-mono text-[15px] sm:text-xl md:text-2xl text-white tracking-[0.12em] sm:tracking-[0.2em] font-medium drop-shadow-md">
               {formatted}
             </div>
           </div>
